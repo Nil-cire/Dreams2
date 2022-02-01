@@ -36,6 +36,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:textSize="28sp"
+                    tools:text="Title"
                     android:textColor="?attr/colorOnPrimary"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
