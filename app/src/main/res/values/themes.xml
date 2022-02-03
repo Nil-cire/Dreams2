@@ -26,10 +26,10 @@
     <style name="DarkTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
         
         <item name="colorPrimary">@color/east_bay</item>
-        <item name="colorPrimaryVariant">@color/east_bay</item>
+        <item name="colorPrimaryVariant">@color/east_bay_dark</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/blonde</item>
-        <item name="colorSecondaryVariant">@color/blonde</item>
+        <item name="colorSecondaryVariant">@color/marigold</item>
         <item name="colorOnSecondary">@color/black</item>
 
         <item name="android:statusBarColor" tools:targetApi="l">@color/east_bay</item>

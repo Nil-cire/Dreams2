@@ -15,7 +15,8 @@ class HomePostCommentsAdapter: ListAdapter<Comment, HomePostCommentsAdapter.Comm
     class CommentViewHolder(private val binding: ViewholderHomePostCommentBinding): RecyclerView.ViewHolder(binding.root) {
 
             fun bind(comment: Comment) {
-                binding.tvComment.text = comment.content
+                val fullMessage = comment.poster.name + ": " +comment.content
+                binding.tvComment.text = fullMessage
             }
     }
 
