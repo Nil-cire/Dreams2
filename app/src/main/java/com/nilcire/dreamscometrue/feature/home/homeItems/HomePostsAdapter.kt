@@ -20,41 +20,21 @@ class HomePostsAdapter(private val context: Context) : ListAdapter<HomePost, Hom
     class HomePostsViewHolder(private val binding: ViewholderHomePostBinding, private val context: Context) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(post: HomePost) {
-            binding.tvPostTitle.text = post.title
-            binding.tvContent.text = post.content
-            binding.tvPostTime.text = post.postTimeStamp.toString()
-            binding.tvUserName.text = post.poster.name
-
-            Glide
-                .with(context)
-                .load(post.imageUrl)
-                .centerCrop()
-                .placeholder(context.getDrawable(R.drawable.ic_account_24))
-                .into(binding.imPostImage)
+            udpateTexts(post)
+            updateImage(post)
 
             // view about comments
             val commentAdapter = HomePostCommentsAdapter()
             binding.rvComments.adapter = commentAdapter
-            if (post.comments.size >= commentAdapter.displayCount) {
-                commentAdapter.submitList(post.comments.subList(0, commentAdapter.displayCount))
-            }
-
-            if (commentAdapter.displayCount >= post.comments.size) {
-                binding.tvMoreComment.visibility = View.GONE
-            }
+            updateDisplayCommentCounts(post, commentAdapter)
 
             binding.tvMoreComment.setOnClickListener {
-                commentAdapter.displayCount += 1
-                if (post.comments.size >= commentAdapter.displayCount) {
-                    commentAdapter.submitList(post.comments.subList(0, commentAdapter.displayCount))
-                }
-
-                if (commentAdapter.displayCount >= post.comments.size) {
-                    binding.tvMoreComment.visibility = View.GONE
-                }
+                commentAdapter.displayCount += 2
+                updateDisplayCommentCounts(post, commentAdapter)
             }
 
             // view about content
+            // this callback update view onLayout (after measure: text lines are defined)
             binding.tvContent.setOnLayoutListener(object: EllipsisTextView.OnLayoutListener{
                 override fun onLayout() {
                     updateCommentEllipse()
@@ -62,6 +42,36 @@ class HomePostsAdapter(private val context: Context) : ListAdapter<HomePost, Hom
             })
         }
 
+        private fun updateImage(post: HomePost) {
+            Glide
+                .with(context)
+                .load(post.imageUrl)
+                .centerCrop()
+                .placeholder(context.getDrawable(R.drawable.ic_account_24))
+                .into(binding.imPostImage)
+        }
+
+        private fun udpateTexts(post: HomePost) {
+            binding.tvPostTitle.text = post.title
+            binding.tvContent.text = post.content
+            binding.tvPostTime.text = post.postTimeStamp.toString()
+            binding.tvUserName.text = post.poster.name
+        }
+
+        // methods
+        private fun updateDisplayCommentCounts(
+            post: HomePost,
+            commentAdapter: HomePostCommentsAdapter
+        ) {
+            if (post.comments.size >= commentAdapter.displayCount) {
+                commentAdapter.submitList(post.comments.subList(0, commentAdapter.displayCount))
+            }
+
+            if (post.comments.size < commentAdapter.displayCount) {
+                binding.tvMoreComment.visibility = View.GONE
+                commentAdapter.submitList(post.comments)
+            }
+        }
 
 
         fun updateCommentEllipse() {
