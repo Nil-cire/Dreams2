@@ -14,4 +14,6 @@
     <string name="chat">Chat</string>
     <string name="profile">Profile</string>
     <string name="app_title">Dreams</string>
+    <string name="see_more_detail">…more</string>
+    <string name="more_comments">Check more comments</string>
 </resources>
