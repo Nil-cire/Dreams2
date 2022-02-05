@@ -5,4 +5,13 @@
     <dimen name="home_post_top_margin">16dp</dimen>
     <dimen name="home_post_bottom_margin">24dp</dimen>
     <dimen name="home_post_spacing_margin">8dp</dimen>
+
+
+    <dimen name="community_main_margin_top">20dp</dimen>
+    <dimen name="community_large_spacing">36dp</dimen>
+    <dimen name="community_spacing">8dp</dimen>
+    <dimen name="community_search_margin_start_end">20dp</dimen>
+    <dimen name="community_search_edittext_margin_start_end">24dp</dimen>
+    <dimen name="community_title_margin_start_end">24dp</dimen>
+    <dimen name="community_item_margin_start_end">24dp</dimen>
 </resources>
