@@ -17,9 +17,9 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.nilcire.dreamscometrue.feature.search.SearchFragment"
+        android:name="com.nilcire.dreamscometrue.feature.comminity.CommunityFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_community">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"

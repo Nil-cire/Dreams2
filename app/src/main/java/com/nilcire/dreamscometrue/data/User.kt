@@ -9,6 +9,12 @@ data class User(
     var region: Region,
 )
 
+data class SimpleUser(
+    val uuid: String,
+    var name: String,
+    var iconUrl: String,
+)
+
 enum class Gender {
     Male, Female,
 }
