@@ -35,4 +35,13 @@
         app:destination="@id/SecondFragment"
         app:popUpTo="@id/nav_graph"
         app:popUpToInclusive="true" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.nilcire.dreamscometrue.feature.chat.ChatFragment"
+        android:label="ChatFragment" />
+    <action
+        android:id="@+id/to_chatFragment"
+        app:destination="@id/chatFragment"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
 </navigation>
