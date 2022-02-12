@@ -54,8 +54,14 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(R.id.to_home_fragment)
                     return@OnNavigationItemSelectedListener true
                 }
+
                 R.id.search -> {
                     navController.navigate(R.id.to_search_fragment)
+                    return@OnNavigationItemSelectedListener true
+                }
+
+                R.id.chat -> {
+                    navController.navigate(R.id.to_chatFragment)
                     return@OnNavigationItemSelectedListener true
                 }
                 else -> return@OnNavigationItemSelectedListener true
