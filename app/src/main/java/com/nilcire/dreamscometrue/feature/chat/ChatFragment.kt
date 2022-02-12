@@ -6,14 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
-import com.nilcire.dreamscometrue.data.SimpleUser
 import com.nilcire.dreamscometrue.databinding.FragmentChatBinding
-import com.nilcire.dreamscometrue.databinding.ViewholderChatFriendBinding
+import java.lang.Exception
+import kotlin.collections.LinkedHashMap
 
 class ChatFragment: Fragment() {
 
@@ -25,10 +22,13 @@ class ChatFragment: Fragment() {
         ViewModelProvider(this, ChatViewModelFactory()).get(ChatViewModel::class.java)
     }
 
-
     companion object {
-        private val tabNames = listOf<String>("Friends", "Groups")
-        private val viewPagerFragments = listOf(FriendListFragment::class.java, FriendListFragment::class.java)
+        // pair of tag name and viewpager fragment
+        private val viewPagerTabAndContentData: LinkedHashMap<String, Class<out Fragment>> =
+            linkedMapOf(
+                "Friends" to FriendListFragment::class.java,
+                "Groups" to ChatFragment::class.java
+            )
     }
 
     override fun onCreateView(
@@ -43,10 +43,10 @@ class ChatFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.vp2ChatContent.adapter = ChatViewPagerAdapter(this, tabNames)
+        binding.vp2ChatContent.adapter = ChatViewPagerAdapter(this, viewPagerTabAndContentData)
 
         TabLayoutMediator(binding.tlTabs, binding.vp2ChatContent) {tab, position ->
-            tab.text = tabNames[position]
+            tab.text = viewPagerTabAndContentData.keys.elementAt(position)
         }.attach()
     }
 
@@ -55,16 +55,17 @@ class ChatFragment: Fragment() {
         _binding = null
     }
 
-    class ChatViewPagerAdapter(fragment: Fragment, private val listFragment: List<String>): FragmentStateAdapter(fragment) {
+    class ChatViewPagerAdapter(fragment: Fragment, private val listFragment: LinkedHashMap<String, Class<out Fragment>>): FragmentStateAdapter(fragment) {
         override fun getItemCount(): Int {
             return listFragment.size
         }
 
         override fun createFragment(position: Int): Fragment {
-            return when (position) {
-                0 -> FriendListFragment()
-                1 -> FriendListFragment()
-                else -> throw IllegalArgumentException("Index without support fragment")
+            val key = listFragment.keys.elementAt(position)
+            return try {
+                listFragment[key]!!.newInstance()
+            } catch (e: Exception) {
+                Fragment()
             }
         }
 
