@@ -7,6 +7,12 @@ import com.nilcire.dreamscometrue.data.SimpleUser
 
 class FriendListViewModel: ViewModel() {
 
+    private var _searchList = MutableLiveData<MutableList<SimpleUser>>()
+    val searchList get() = _searchList
+
+    private var _searchName = MutableLiveData<String>()
+    val searchName get() = _searchName
+
     private var _recentList = MutableLiveData<MutableList<SimpleUser>>()
     val recentList get() = _recentList
 
@@ -33,6 +39,18 @@ class FriendListViewModel: ViewModel() {
             SimpleUser("0008", "EIGHT", ""),
             SimpleUser("0009", "NINE", ""),
         )
+    }
+
+    fun updateSearchName(searchName: String) {
+        _searchName.value = searchName
+    }
+
+    fun clearSearchList() {
+        _searchList.value = mutableListOf()
+    }
+
+    fun addSearchList(friend: SimpleUser) {
+        _searchList.value?.add(friend)
     }
 
 }
