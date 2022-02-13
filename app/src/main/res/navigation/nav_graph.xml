@@ -44,4 +44,14 @@
         app:destination="@id/chatFragment"
         app:popUpTo="@id/nav_graph"
         app:popUpToInclusive="true" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.nilcire.dreamscometrue.feature.profile.ProfileFragment"
+        android:label="ProfileFragment" />
+    <action
+        android:id="@+id/to_profileFragment"
+        app:destination="@id/profileFragment"
+        app:popUpTo="@id/FirstFragment"
+        app:popUpToInclusive="true"
+        app:launchSingleTop="true" />
 </navigation>

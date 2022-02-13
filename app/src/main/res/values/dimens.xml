@@ -14,4 +14,8 @@
     <dimen name="community_search_edittext_margin_start_end">24dp</dimen>
     <dimen name="community_title_margin_start_end">24dp</dimen>
     <dimen name="community_item_margin_start_end">24dp</dimen>
+
+
+    <dimen name="profile_item_spacing">12dp</dimen>
+    <dimen name="profile_item_spacing_top">24dp</dimen>
 </resources>

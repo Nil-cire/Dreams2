@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingStart="@dimen/profile_item_spacing"
+    android:paddingEnd="@dimen/profile_item_spacing">
+
+    <com.nilcire.dreamscometrue.util.ProfileButtonView
+        android:id="@+id/profile_icon_01"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/profile_icon_02"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:layout_marginTop="@dimen/profile_item_spacing_top"
+        android:layout_marginStart="@dimen/profile_item_spacing"
+        android:layout_marginEnd="@dimen/profile_item_spacing"
+
+        app:cardCornerRadius="10dp"
+        app:layout_constraintDimensionRatio="1:1"
+
+        app:title="Profile"
+        app:cardBackgroundColor="?attr/colorSecondary"
+        app:iconImage="@drawable/ic_account_24"
+
+        tools:background="@color/blonde"/>
+
+
+    <com.nilcire.dreamscometrue.util.ProfileButtonView
+        android:id="@+id/profile_icon_02"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@+id/profile_icon_01"
+        app:layout_constraintEnd_toStartOf="@+id/profile_icon_03"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:layout_marginTop="@dimen/profile_item_spacing_top"
+        android:layout_marginStart="@dimen/profile_item_spacing"
+        android:layout_marginEnd="@dimen/profile_item_spacing"
+
+        app:layout_constraintDimensionRatio="1:1"
+        app:cardCornerRadius="10dp"
+
+        app:title=""
+        app:cardBackgroundColor="?attr/colorSecondaryVariant"
+
+        tools:background="@color/black"/>
+
+    <com.nilcire.dreamscometrue.util.ProfileButtonView
+        android:id="@+id/profile_icon_03"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@+id/profile_icon_02"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:layout_marginTop="@dimen/profile_item_spacing_top"
+        android:layout_marginStart="@dimen/profile_item_spacing"
+        android:layout_marginEnd="@dimen/profile_item_spacing"
+
+        app:layout_constraintDimensionRatio="1:1"
+        app:cardCornerRadius="10dp"
+
+        app:title="Profile"
+        app:cardBackgroundColor="?attr/colorSecondary"
+        app:iconImage="@drawable/ic_account_24"
+
+        tools:background="@color/blonde"/>
+
+    <com.nilcire.dreamscometrue.util.ProfileButtonView
+        android:id="@+id/profile_icon_04"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/profile_icon_05"
+        app:layout_constraintTop_toBottomOf="@+id/profile_icon_01"
+
+        android:layout_marginTop="@dimen/profile_item_spacing_top"
+        android:layout_marginStart="@dimen/profile_item_spacing"
+        android:layout_marginEnd="@dimen/profile_item_spacing"
+
+        app:cardCornerRadius="10dp"
+        app:layout_constraintDimensionRatio="1:1"
+
+        app:title=""
+        app:cardBackgroundColor="?attr/colorSecondaryVariant"
+
+        tools:background="@color/blonde"/>
+
+
+    <com.nilcire.dreamscometrue.util.ProfileButtonView
+        android:id="@+id/profile_icon_05"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@+id/profile_icon_04"
+        app:layout_constraintEnd_toStartOf="@+id/profile_icon_06"
+        app:layout_constraintTop_toBottomOf="@+id/profile_icon_01"
+
+        android:layout_marginTop="@dimen/profile_item_spacing_top"
+        android:layout_marginStart="@dimen/profile_item_spacing"
+        android:layout_marginEnd="@dimen/profile_item_spacing"
+
+        app:layout_constraintDimensionRatio="1:1"
+        app:cardCornerRadius="10dp"
+
+        app:title="Profile"
+        app:iconImage="@drawable/ic_account_24"
+        app:cardBackgroundColor="?attr/colorSecondary"
+
+        tools:background="@color/black"/>
+
+    <com.nilcire.dreamscometrue.util.ProfileButtonView
+        android:id="@+id/profile_icon_06"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@+id/profile_icon_05"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_icon_01"
+
+        android:layout_marginTop="@dimen/profile_item_spacing_top"
+        android:layout_marginStart="@dimen/profile_item_spacing"
+        android:layout_marginEnd="@dimen/profile_item_spacing"
+
+        app:layout_constraintDimensionRatio="1:1"
+        app:cardCornerRadius="10dp"
+
+        app:title=""
+        app:cardBackgroundColor="?attr/colorSecondaryVariant"
+
+
+        tools:background="@color/blonde"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

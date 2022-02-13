@@ -64,6 +64,12 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(R.id.to_chatFragment)
                     return@OnNavigationItemSelectedListener true
                 }
+
+                R.id.profile -> {
+                    navController.navigate(R.id.to_profileFragment)
+                    return@OnNavigationItemSelectedListener true
+                }
+
                 else -> return@OnNavigationItemSelectedListener true
             }
         })
